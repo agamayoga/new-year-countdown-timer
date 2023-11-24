@@ -2,6 +2,8 @@
 
 A simple full-screen New Year countdown timer with fireworks effect.
 
+Click for [Live preview](https://agama.day/new-year-countdown-timer)
+
 ## Requirements
 
 Node.js 12+
