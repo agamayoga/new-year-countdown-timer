@@ -432,10 +432,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="fixed left-0 top-0 w-full h-full overflow-hidden">
 
     <!-- Title -->
-    <div class="title fixed left-0 top-0 w-full mt-24" v-if="isReady && isHeaderTitleVisible">
+    <div class="title" v-if="isReady && isHeaderTitleVisible">
       <div class="grid place-items-center text-center">
         <h1 v-if="!happyNewYearText">New Year starts in<span v-if="days > 0">&nbsp;{{ days }}&nbsp;days</span></h1>
         <h1 v-if="happyNewYearText">{{ happyNewYearText }}</h1>
@@ -482,9 +482,147 @@ onMounted(() => {
 </template>
 
 <style scoped>
-h1, span {
+.title h1 {
+  @apply fixed left-0 top-0 w-full;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-variant-numeric: tabular-nums; /* Monospace */
+  font-weight: 700;
+  font-size: 120px;
+  letter-spacing: .1rem;
+  font-size: 5vw;
+  top: 4vw;
+}
+
+.title h1, span {
   outline: none;
   user-select: none;
+}
+
+.countdown {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.world-clocks {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-variant-numeric: tabular-nums; /* Monospace */
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .1rem;
+
+  margin-bottom: 30px;
+}
+
+.world-clocks .timezone-name {
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.world-clocks .timezone-clock {
+  font-weight: 700;
+}
+
+.world-clocks .timezone-highlight {
+  color: yellow;
+}
+
+.clock {
+  overflow: hidden;
+}
+
+.clock.last-10s {
+  animation: blinker 1s linear infinite;
+}
+
+.clock.highlight {
+  text-shadow: 0 0 10px #3498DB,
+               0 0 20px #3498DB,
+               0 0 30px #3498DB,
+               0 0 40px #2980B9,
+               0 0 70px #2980B9,
+               0 0 80px #2980B9,
+               0 0 100px #2980B9,
+               0 0 150px #2980B9;
+}
+
+.clock span {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-variant-numeric: tabular-nums; /* Monospace */
+  font-weight: 900;
+  /* font-size: 400px; */
+  letter-spacing: .7rem;
+  line-height: 1em;
+  /* font-size: 18vw; */
+  font-size: 23vw;
+}
+
+.clock span.colon {
+  /* font-size: 250px; */
+  position: relative;
+  /* top: -62px; */
+  /* font-size: 12vw; */
+  font-size: 18vw;
+  top: -3vw;
+}
+
+.program-schedule {
+  text-align: right;
+  width: 360px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  left: -16px;
+}
+
+.controls {
+  position: fixed;
+  top: 0;
+  right: -150px;
+  z-index: 50;
+  transform: translateX(0);
+}
+
+.controls.slide-in {
+  animation: slide-in 0.3s forwards;
+  /* animation-delay: 2s; */
+}
+
+.controls.slide-out {
+  animation: slide-out 0.3s forwards;
+  /* animation-delay: 2s; */
+}
+
+.controls.slide-far {
+  transform: translateX(450px);
+}
+
+@keyframes slide-in {
+  100% { right: 0; }
+}
+
+@keyframes slide-out {
+  0% { right: 0; }
+  100% { right: -150px; }
+}
+
+@keyframes blinker {
+  from,
+  49.9% {
+    opacity: 0;
+  }
+  50%,
+  to {
+    opacity: 1;
+  }
 }
 
 /* Hide world clock if window width less than 1500px */

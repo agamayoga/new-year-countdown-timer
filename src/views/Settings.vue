@@ -80,7 +80,7 @@ function goBack() {
   <div class="relative">
 
     <!-- Header -->
-    <div class="fixed left-0 top-0 w-full flex flex-row gap-4 m-4">
+    <div class="flex flex-row gap-4 m-4">
       <Button accesskey="x" @click="goBack">
         <svg xmlns="http://www.w3.org/2000/svg" data-icon="fa-arrow-left" width="32px" height="32px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" style="fill:white;" /></svg>
       </Button>
@@ -89,7 +89,7 @@ function goBack() {
 
     <!-- Settings -->
     <form autocomplete="off">
-      <div class="mt-32 mx-28">
+      <div class="mt-4 mb-8 mx-28">
 
         <!-- Happy new year text -->
         <div class="text-white mt-4">Celebration message</div>

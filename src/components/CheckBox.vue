@@ -25,7 +25,7 @@ const value = computed({
 
 <template>
   <div class="flex flex-row gap-4">
-    <div class="relative size">
+    <div class="relative size flex-0">
       <div class="square size" v-if="value">
         <svg xmlns="http://www.w3.org/2000/svg" data-icon="fa-check" width="20px" height="20px" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" style="fill:lime;" /></svg>
       </div>
@@ -34,7 +34,7 @@ const value = computed({
       </div>
       <input type="checkbox" :id="uniqueId" v-model="value" class="checkbox size" />
     </div>
-    <label :for="uniqueId" :id="'label-for-' + uniqueId" class="label"><slot /></label>
+    <label :for="uniqueId" :id="'label-for-' + uniqueId" class="label flex-1"><slot /></label>
   </div>
 </template>
 
